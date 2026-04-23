@@ -1,38 +1,61 @@
-import { Gyroscope } from "expo-sensors";
+import { Accelerometer } from "expo-sensors"; // ✅ Акселерометр замість гіроскопа
 import React, { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Sensors() {
-  // Створюємо стан для збереження даних гіроскопа.
-  // Сенсор повертає три координати обертання пристрою: X, Y, Z.
   const [data, setData] = useState({ x: 0, y: 0, z: 0 });
+  const [isAvailable, setIsAvailable] = useState(false);
 
   useEffect(() => {
-    // Встановлюємо інтервал оновлення даних сенсора. 300 мс означає, що нові дані будуть приходити приблизно 3 рази на секунду.
-    Gyroscope.setUpdateInterval(300);
+    let subscription: any;
 
-    // Підписуємось на події сенсора. addListener викликає callback-функцію кожного разу, коли гіроскоп передає нові дані.
-    const subscription = Gyroscope.addListener((sensorData) => {
-      // Оновлюємо стан компоненту новими даними сенсора
-      setData(sensorData);
+    Accelerometer.isAvailableAsync().then((available) => {
+      console.log("Акселерометр доступний:", available);
+      setIsAvailable(available || false);
+
+      if (available) {
+        Accelerometer.setUpdateInterval(300);
+        subscription = Accelerometer.addListener((sensorData) => {
+          setData(sensorData);
+        });
+      }
     });
 
-    // Функція очищення (cleanup). Вона викликається автоматично, коли компонент демонтується.
-    // remove() скасовує підписку на сенсор, щоб уникнути витоку пам'яті та зайвого навантаження.
-    return () => subscription.remove();
+    return () => subscription?.remove();
   }, []);
 
+  if (!isAvailable) {
+    return (
+      <View style={styles.center}>
+        <Text style={styles.error}>Сенсор недоступний</Text>
+      </View>
+    );
+  }
+
   return (
-    <View>
-      <Text>Дані гіроскопа</Text>
-
-      {/* Виводимо координати обертання пристрою.
-      Метод toFixed(2) обмежує кількість знаків після коми,
-      щоб значення не "стрибали" занадто швидко в інтерфейсі. */}
-
-      <Text>X: {data.x.toFixed(2)}</Text>
-      <Text>Y: {data.y.toFixed(2)}</Text>
-      <Text>Z: {data.z.toFixed(2)}</Text>
+    <View style={styles.center}>
+      <Text style={styles.data}>X: {data.x.toFixed(2)}</Text>
+      <Text style={styles.data}>Y: {data.y.toFixed(2)}</Text>
+      <Text style={styles.data}>Z: {data.z.toFixed(2)}</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  center: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+    backgroundColor: "#f0f8ff",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 30,
+    color: "#007AFF",
+  },
+  data: { fontSize: 22, marginVertical: 10, fontWeight: "600" },
+  error: { fontSize: 20, color: "red", textAlign: "center" },
+  hint: { fontSize: 16, color: "#666", marginTop: 20, textAlign: "center" },
+});
