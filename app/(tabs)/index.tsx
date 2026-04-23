@@ -1,10 +1,12 @@
 import { View } from "react-native";
-import Sensors from "../../customComponents/Sensors";
+import UserMap from "../../customComponents/UserMap";
+// import Sensors from "../../customComponents/Sensors"
 
 export default function Index() {
   return (
     <View style={{ flex: 1 }}>
-      <Sensors />
+      <UserMap />
+      {/* <Sensors />  */}
     </View>
   );
 }
