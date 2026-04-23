@@ -12,14 +12,19 @@ export const UserProfile: React.FC<UserProfileProps> = ({ userId }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const fetchUserData = async (retries = 3) => {
       setLoading(true);
       try {
         const formattedName = await UserService.getFormattedUserName(userId);
         setUserName(formattedName);
-      } catch (error) {
-        console.error("Помилка при завантаженні:", error);
-        setUserName("Помилка завантаження");
+      } catch (error: any) {
+        console.error("UserService Error:", error.message);
+        if (retries > 0) {
+          console.log(`Retry ${4 - retries}/3...`);
+          setTimeout(() => fetchUserData(retries - 1), 1000);
+        } else {
+          setUserName("Перевірте інтернет");
+        }
       } finally {
         setLoading(false);
       }

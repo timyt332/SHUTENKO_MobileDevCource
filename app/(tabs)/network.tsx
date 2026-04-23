@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView, Text } from "react-native";
-import { UserProfile } from "../customComponents/UserProfile";
 import { globalStyles } from "../styles/global";
 
 export default function NetworkScreen() {
@@ -18,7 +17,11 @@ export default function NetworkScreen() {
   return (
     <SafeAreaView style={globalStyles.container}>
       <Text style={globalStyles.titleText}>Тестування Network Layer</Text>
-      <UserProfile userId={currentUserId} />
+
+      <Text>ID: {currentUserId}</Text>
+      <Text>
+        API: https://jsonplaceholder.typicode.com/users/{currentUserId}
+      </Text>
     </SafeAreaView>
   );
 }
