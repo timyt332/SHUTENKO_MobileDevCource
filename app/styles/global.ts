@@ -3,9 +3,42 @@ import { StyleSheet } from "react-native";
 export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f5f5f5",
     padding: 20,
-    justifyContent: "center",
+    backgroundColor: "#fff",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+    textAlign: "center",
+  },
+  card: {
+    backgroundColor: "#f8f9fa",
+    padding: 20,
+    borderRadius: 10,
+    marginVertical: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  text: {
+    fontSize: 16,
+    marginBottom: 8,
+    color: "#333",
+  },
+  button: {
+    backgroundColor: "#007AFF",
+    padding: 15,
+    borderRadius: 8,
+    marginBottom: 20,
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "600",
   },
 
   titleText: {
@@ -31,19 +64,6 @@ export const globalStyles = StyleSheet.create({
     height: 200,
     borderRadius: 15,
     marginBottom: 20,
-  },
-
-  button: {
-    backgroundColor: "#007AFF",
-    padding: 15,
-    borderRadius: 10,
-    alignItems: "center",
-  },
-
-  buttonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "600",
   },
 
   redBtn: {
@@ -74,23 +94,5 @@ export const globalStyles = StyleSheet.create({
 
   primaryButton: {
     flex: 1,
-  },
-  card: {
-    backgroundColor: "#fff",
-    borderRadius: 15,
-    padding: 20,
-    margin: 10,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-
-  text: {
-    fontSize: 16,
-    color: "#555",
-    marginBottom: 8,
-    lineHeight: 22,
   },
 });
