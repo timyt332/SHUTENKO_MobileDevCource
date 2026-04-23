@@ -1,11 +1,10 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
+import Sensors from "../../customComponents/Sensors";
 
 export default function Index() {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text style={{ fontSize: 24, fontWeight: "bold" }}>
-        This is Shutenko MAIN Page
-      </Text>
+    <View style={{ flex: 1 }}>
+      <Sensors />
     </View>
   );
 }
