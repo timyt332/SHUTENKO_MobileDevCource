@@ -11,6 +11,7 @@ export default function TabsLayout() {
       <Tabs.Screen name="index" options={{ title: "Головна" }} />
       <Tabs.Screen name="sandbox" options={{ title: "Пісочниця" }} />
       <Tabs.Screen name="profile" options={{ title: "Профіль" }} />
+      <Tabs.Screen name="list" options={{ title: "Список" }} />
     </Tabs>
   );
 }
