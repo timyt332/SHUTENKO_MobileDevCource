@@ -2,12 +2,7 @@ import { Tabs } from "expo-router";
 
 export default function TabsLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        headerShown: true,
-        tabBarActiveTintColor: "#007AFF",
-      }}
-    >
+    <Tabs screenOptions={{ headerShown: false }}>
       <Tabs.Screen name="index" options={{ title: "Головна" }} />
       <Tabs.Screen name="sandbox" options={{ title: "Пісочниця" }} />
       <Tabs.Screen name="profile" options={{ title: "Профіль" }} />
