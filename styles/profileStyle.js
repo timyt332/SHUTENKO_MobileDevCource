@@ -25,6 +25,13 @@ export const profileStyles = StyleSheet.create({
     marginBottom: 4,
     textAlign: "center",
   },
+  info: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#333",
+    marginBottom: 4,
+    textAlign: "center",
+  },
   email: {
     fontSize: 16,
     color: "#666",
