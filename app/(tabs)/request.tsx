@@ -32,11 +32,10 @@ export default function RequestScreen() {
     await updateUser(form);
 
     Alert.alert(
-      "✅ Успіх",
-      `Заявку від ${form.name} ${form.surname} відправлено!\n📧 ${form.email}\n📱 ${form.phone}\n🏙️ ${form.city}\n\nДані збережено в профіль`,
+      "Успіх",
+      `Заявку від ${form.name} ${form.surname} відправлено!\n ${form.email}\n📱 ${form.phone}\n ${form.city}\n\nДані збережено в профіль`,
     );
 
-    // Очищуємо форму (дані лишаються в профілі)
     setForm({ name: "", surname: "", email: "", phone: "", city: "" });
   };
 

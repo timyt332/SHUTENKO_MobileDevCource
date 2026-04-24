@@ -9,10 +9,8 @@ import {
 import { Header } from "../../components/Header";
 import { homeStyles } from "../../styles/homeStyle";
 
-// Отримання висоти екрану для розрахунку розміру картки
 const { height } = Dimensions.get("window");
 
-// Інтерфейс для даних елемента списку
 interface ListItem {
   id: string;
   title: string;

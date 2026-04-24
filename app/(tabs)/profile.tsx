@@ -17,8 +17,8 @@ export default function ProfileScreen() {
         {user.name} {user.surname || ""}
       </Text>
       <Text style={profileStyles.email}>{user.email || "Не вказано"}</Text>
-      <Text style={profileStyles.info}>📱 {user.phone || "Не вказано"}</Text>
-      <Text style={profileStyles.info}>🏙️ {user.city || "Не вказано"}</Text>
+      <Text style={profileStyles.info}>{user.phone || "Не вказано"}</Text>
+      <Text style={profileStyles.info}> {user.city || "Не вказано"}</Text>
 
       <TouchableOpacity style={profileStyles.btn}>
         <Text style={{ color: "white", fontSize: 16, fontWeight: "500" }}>

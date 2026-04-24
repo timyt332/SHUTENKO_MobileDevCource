@@ -25,7 +25,6 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   });
 
   const clearUser = async () => {
-    // ✅ Тепер є в інтерфейсі
     const emptyUser: UserData = {
       name: "",
       surname: "",

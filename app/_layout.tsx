@@ -2,7 +2,7 @@ import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { UserProvider } from "../contexts/UserContext";
-console.log("Debug: Root Layout loaded"); // для дебагу
+console.log("Debug: Root Layout loaded");
 
 export default function RootLayout() {
   return (
