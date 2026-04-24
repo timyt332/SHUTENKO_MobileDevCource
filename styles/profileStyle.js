@@ -1,0 +1,50 @@
+import { StyleSheet } from "react-native";
+
+export const profileStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#f8f9fa",
+    padding: 20,
+    alignItems: "center",
+  },
+  avatar: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    marginBottom: 16,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  name: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#333",
+    marginBottom: 4,
+    textAlign: "center",
+  },
+  email: {
+    fontSize: 16,
+    color: "#666",
+    marginBottom: 32,
+    textAlign: "center",
+  },
+  btn: {
+    backgroundColor: "#007AFF",
+    paddingVertical: 16,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    marginBottom: 16,
+    minHeight: 44,
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
+  },
+});
